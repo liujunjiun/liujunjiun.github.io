@@ -15,7 +15,7 @@ img { border: 0; }
 .zxx_logo { position: absolute; margin-top: 14px; }
 .zxx_author_time { float: right; line-height: 22px; margin-top: 16px; color: #999; font-family:Tahoma, Geneva, sans-serif; }
 
-.zxx_nav { _width: 100%; position: absolute; top: 70px; right: 0; left: 0; border-top: 4px solid #a0b3d6; background-color: #beceeb; }
+.zxx_nav { _width: 100%; position: absolute; top: 0; right: 0; left: 0; border-top: 4px solid #a0b3d6; background-color: #beceeb; }
 .zxx_nav_ul { width: 100%; margin: 0; padding-left: 0; list-style-type: none; overflow: hidden; font-size: 14px; font-weight: bold; }
 .zxx_nav_li { float: left;}
 .zxx_nav_a { display: block; padding: 10px 40px; color: #333; text-shadow: 1px 1px #eee; text-decoration: none; }
@@ -32,7 +32,7 @@ img { border: 0; }
 .zxx_copyright a { margin-right: 3px; margin-left: 3px; }
 
 
-.zxx_body {position:absolute; _width: 100%; top: 113px; bottom: 65px; left: 0; right: 0; border: 1px solid; border-color: #fff #f0f3f9 #cad5eb; background-color: #fff; -webkit-transition: all .35s; transition: all .35s; }
+.zxx_body {position:absolute; _width: 100%; top: 43px; bottom: 65px; left: 0; right: 0; border: 1px solid; border-color: #fff #f0f3f9 #cad5eb; background-color: #fff; -webkit-transition: all .35s; transition: all .35s; }
 
 .zxx_side {	width: 300px; height: 100%; border-right: 4px solid #a0b3d6; overflow: auto; position: absolute; }
 .zxx_slide_ol { padding: 0; margin: 0; list-style-type: none; }
