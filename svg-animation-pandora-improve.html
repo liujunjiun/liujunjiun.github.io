@@ -1,6 +1,9 @@
-<html><head>
+
+<!doctype html>
+<html>
+<head>
 <meta charset="utf-8">
-<title>SVG animation 潘多拉效果优化版 »junjun's website</title>
+<title>SVG animation 潘多拉效果优化版 &raquo; junjun's website</title>
 <style>
 html, body { margin: 0; height: 100%; background-color: #012E72; font-family: 'microsoft yahei'; overflow: hidden; }
 .footer-bar { background-color: #A7C0DC; position: absolute; left: 0; right: 0; bottom: 0; top: 0; visibility: hidden; }
@@ -43,14 +46,14 @@ html, body { margin: 0; height: 100%; background-color: #012E72; font-family: 'm
 </head>
 
 <body>
-<svg id="shapeSVG" class="shape-svg"><desc>Created with Snap</desc><defs></defs><path fill="rgba(255,255,255,0.85)" d="M570 -36Q765 -36,1350 -36Q1350 202,1350 440Q765 440,570 440Q570 202,570 -36Z"></path></svg>
-<div id="shapeChorme" class="shape-chrome" style="visibility: visible; opacity: 1;"><a href="javascript:" id="shapeMini" class="shape-mini" title="最小化"></a></div>
+<svg id="shapeSVG" class="shape-svg"></svg>
+<div id="shapeChorme" class="shape-chrome"><a href="javascript:" id="shapeMini" class="shape-mini" title="最小化"></a></div>
 
-<div id="footerBar" class="footer-bar" data-position="right" style="visibility: visible;">
-	<a href="javascript:" id="iconChrome" class="icon-chrome icon-chrome-active" data-type="chrome" style="top: 77%;"></a>
+<div id="footerBar" class="footer-bar" data-position="bottom">
+	<a href="javascript:" id="iconChrome" class="icon-chrome" data-type="chrome"></a>
 </div>
 
-<div id="clickMe" class="click-me" style="visibility: hidden;">点击我</div>
+<div id="clickMe" class="click-me">点击我</div>
 <script src="/GitHub/demo-Snap.svg/static/snap.svg-min.js"></script>
 <script>
 // 页面元素
@@ -884,7 +887,5 @@ window.addEventListener("resize", function() {
 });
 
 </script>
-
-
 </body>
 </html>
