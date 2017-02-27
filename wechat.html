@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	  <meta name="author" content="liujunjun">
+</head>
+<body>
+<script>
+function isIE() { 
+  if (!!window.ActiveXObject || "ActiveXObject" in window)
+	return true;
+  else
+	return false;
+}
+if(isIE()){
+	alert('不支持IE浏览器，将跳转到首页');
+	location.href = 'https://liujunjiun.github.io/';
+}
+</script>
+<style>
+.icon{ 
+    width: 114px;
+    height: 114px;
+    overflow: hidden;
+    border-radius: 27px;
+    position: relative;
+}
+.message{
+	background: #8fff73\9;  
+    background: -moz-linear-gradient( top , #8fff73 , #0cd60c);
+    background: -webkit-linear-gradient( top , #8fff73 , #0cd60c);
+}
+.c{
+    width: 70px;
+    height:58px;
+    border-radius: 70px/58px;
+    background: #fff;
+    position: absolute;
+    left: 7px;
+    top: 19px;
+}
+.c_right{
+    width: 60px;
+    height:45px;
+    border-radius: 60px/45px;
+    background: #fff;
+	border-top:5px solid #8fff73;
+	border-left:5px solid #8ff773;
+    position: absolute;
+    left: 44px;
+    top: 45px;
+	z-index：9;
+}
+.t{
+    width: 42px;
+    height: 12px;
+    border-bottom:22px solid #fff;
+	border-top-left-radius:0;
+	border-top-right-radius:50px;
+	border-bottom-right-radius:0;
+	border-bottom-left-radius:50px;
+    position: absolute;
+    left: 5px;
+    top: 45px;
+	-webkit-transform: rotate( -91deg );
+    -moz-transform: rotate( -91deg ) ;
+}
+.t_right{
+    width: 32px;
+    height: 12px;
+    border-bottom:18px solid #fff;
+	border-top-left-radius:50px;
+	border-top-right-radius:0px;
+	border-bottom-right-radius:50px;
+	border-bottom-left-radius:0px;
+    position: absolute;
+    left: 74px;
+    top: 66px;
+	-webkit-transform: rotate( 91deg );
+    -moz-transform: rotate( 91deg ) ;
+	z-index：9;
+}
+.eye{
+	width: 10px;
+    height: 10px;
+	border-radius:5px;
+	background: #8fff73;
+}
+.eye_1{
+	width: 8px;
+    height: 8px;
+	border-radius:4px;
+	background: #8fff73;
+}
+.position_1{
+	position: absolute;
+    left: 20px;
+    top: 36px;
+}
+.position_2{
+	position: absolute;
+    left: 50px;
+    top: 36px;
+}
+.position_3{
+	position: absolute;
+    left: 60px;
+    top: 62px;
+}
+.position_4{
+	position: absolute;
+    left: 85px;
+    top: 62px;
+}
+</style>
+<div class="icon message">
+	<span class="c"></span>
+	<span class="t"></span>
+	<span class="c_right"></span>
+	<span class="t_right"></span>
+	<span class="eye position_1"></span>
+	<span class="eye position_2"></span>
+	<span class="eye_1 position_3"></span>
+	<span class="eye_1 position_4"></span>
+</div>
+</body>
+</html>
