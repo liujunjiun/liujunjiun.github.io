@@ -19,6 +19,6 @@ solution: npm install npm -g
 ## #10001 cp: cannot stat 'ltmain.sh': No such file or directory  （6 months ago）
 ```
 https://github.com/mongodb/mongo-php-driver/issues/255
-得得得
+
 if your php version >= 7.0, please ignore it! because its is php5.   
 ```
