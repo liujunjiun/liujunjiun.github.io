@@ -22,6 +22,11 @@ https://github.com/mongodb/mongo-php-driver/issues/255
 
 if your php version >= 7.0, please ignore it! because its is php5.   
 ```
+
+## #10002  PHP Startup: Unable to load dynamic library '/usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/swoole.so' - /usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/swoole.so: wrong ELF class: ELFCLASS32 in Unknown on line 0
+```
+    ELFCLASS32， it meas that you have changed your PC into 64 version，caused error of compiled 
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
