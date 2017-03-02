@@ -24,6 +24,7 @@ if your php version >= 7.0, please ignore it! because its is php5.
 ```
 
 ## #10002  PHP Startup: Unable to load dynamic library '/usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/swoole.so' - /usr/local/php/lib/php/extensions/no-debug-non-zts-20160303/swoole.so: wrong ELF class: ELFCLASS32 in Unknown on line 0
+
 ```
     ELFCLASS32， it meas that you have changed your PC into 64 version，caused error of compiled 
 ```
