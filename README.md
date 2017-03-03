@@ -28,10 +28,38 @@ if your php version >= 7.0, please ignore it! because its is php5.
 ```
     ELFCLASS32， it meas that you have changed your PC into 64 version，caused error of compiled 
 ```
-## #10002  events.js:72 throw er; // Unhandled 'error' event  【error on npm run dev】
+## #10003  events.js:72 throw er; // Unhandled 'error' event  【error on npm run dev】
 
 ```
 because  your listen‘s port in use ， please check your netstat 。
+```
+
+## #10004  [Warning] Ignoring user change to 'mysql' because the user was set to 'mariadb' earlier on the command line
+## #10005  Can't find messagefile '/usr/share/mysql/errmsg.sys'
+```
+maybe apt或yum安装上mysql-client相关的package，导致原有的
+[root@mysql91 share]# mysqld_safe --defaults-file=/etc/my.cnf &
+[1] 3482
+[root@mysql91 share]# 170103 18:48:58 mysqld_safe Logging to '/log/mysql/error.log'.
+
+[1]+  Done                    mysqld_safe --defaults-file=/etc/my.cnf
+[root@mysql91 share]# vi /log/mysql/error.log 
+............
+2017-01-03 18:48:58 140215358961696 [ERROR] Can't find messagefile '/usr/local/mysql/share/mysql/errmsg.sys'
+2017-01-03 18:48:58 140215358961696 [ERROR] Aborting
+............
+
+[root@mysql91 share]# vi /etc/my.cnf
+
+添加[mysqld]
+language = /usr/local/mysql/share/english
+
+[root@mysql91 english]# cd /usr/local/mysql/share/english
+[root@mysql91 english]# file errmsg.sys 
+errmsg.sys: data     --数据文件，可以不用看了
+
+[root@mysql91 english]# mysqld_safe --defaults-file=/etc/my.cnf &
+
 ```
 
 ![雇佣兵日记](images/img201003241707024.jpg)
