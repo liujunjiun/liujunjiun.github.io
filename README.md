@@ -28,6 +28,12 @@ if your php version >= 7.0, please ignore it! because its is php5.
 ```
     ELFCLASS32， it meas that you have changed your PC into 64 version，caused error of compiled 
 ```
+## #10002  events.js:72 throw er; // Unhandled 'error' event  【error on npm run dev】
+
+```
+because  your listen‘s port in use ， please check your netstat 。
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
