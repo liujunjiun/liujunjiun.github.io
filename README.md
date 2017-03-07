@@ -61,6 +61,13 @@ errmsg.sys: data     --数据文件，可以不用看了
 [root@mysql91 english]# mysqld_safe --defaults-file=/etc/my.cnf &
 
 ```
+## #10006  Ignoring user change to 'mysql' because the user was set to 'mariadb' earlier on the command line  
+
+```
+because  apt-get install some package of mysql
+solution： dpkg -P mysql-server mysql-common libmysqlclient15off libmysqlclient15-dev
+it will  be fine！
+```
 
 ![雇佣兵日记](images/img201003241707024.jpg)
 
