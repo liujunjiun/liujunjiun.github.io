@@ -68,6 +68,11 @@ because  apt-get install some package of mysql
 solution： dpkg -P mysql-server mysql-common libmysqlclient15off libmysqlclient15-dev
 it will  be fine！
 ```
+## #10007  ERROR 1064 (42000): no enabled local indexes to search
+
+```
+pendding
+```
 
 ![雇佣兵日记](images/img201003241707024.jpg)
 
