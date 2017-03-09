@@ -87,6 +87,11 @@ pendding
 switch user
 ```
 
+## #10010   main ERROR Could not register mbeans java.security.AccessControlException: access denied ("javax.management.MBeanTrustPermission" "register")
+
+```
+chmod -R 775 config
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
