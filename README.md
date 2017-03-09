@@ -74,6 +74,13 @@ it will  be fine！
 pendding
 ```
 
+## #10008  W: Duplicate sources.list entry when do “sudo apt-get update”
+
+```
+注释（或直接删除）掉/etc/apt/sources.list中，内容有重复的那部分，就可以避免此错误了。
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
