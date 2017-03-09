@@ -81,7 +81,7 @@ pendding
 
 ```
 
-## #10009  org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root
+## #10009   org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root
 
 ```
 switch user
