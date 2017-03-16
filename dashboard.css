@@ -1,0 +1,71 @@
+body,table,a{margin:0;padding:0;}
+.apply-list .table-striped > tbody > tr:nth-of-type(even) {
+	background-color: #EFEFEF;
+}
+.apply-list .table-striped {
+    width:95%;
+	min-width:920px;
+	table-layout:fixed;
+	margin: 50px auto;
+}
+.apply-list .table-striped > tbody > tr:nth-of-type(odd){
+	background-color: #FFF;
+}
+.apply-list .table-striped  a , .resume-list .table-striped  a{
+	cursor:pointer;
+	color: #F3991C;
+}
+.apply-list .table-striped > thead {
+	background-color: #A0A0A0;
+	border-bottom:3px  solid  orange;
+	color:white;
+}
+.apply-list .table-striped .operate a {
+	padding:3px  10px;
+	width:52px;
+	height:23px;
+	line-height:23px;
+	border:1px solid #bbb;
+}
+.apply-list .table-striped .operate a:hover {
+	padding:3px  10px;
+	width:52px;
+	height:23px;
+	line-height:23px;
+	border:1px solid #F3991C;
+}
+.apply-list .table-striped > thead > tr > th {
+	font-size:14px;
+	text-align: center;
+	height:42px;
+}
+.table-striped > tbody > tr{
+	padding: 10px;
+	text-align: center;
+	height:45px;
+}
+.table-striped > tbody > tr > td{
+	overflow:hidden;
+	text-overflow:ellipsis; 
+	-webkit-text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.table-striped{
+	valign:middle;
+}
+td{
+	vertical-align: center;
+}
+.pagination {
+	margin:5 0;
+}
+
+@media ( min-width : 920px) {
+	.main {
+		padding: 0px;
+	}
+}
+
+.main .page-header {
+	margin-top: 0;
+}
