@@ -32,7 +32,7 @@ img { border: 0; }
 .zxx_copyright a { margin-right: 3px; margin-left: 3px; }
 
 
-.zxx_body {position:absolute; _width: 100%; top: 43px; bottom: 65px; left: 0; right: 0; border: 1px solid; border-color: #fff #f0f3f9 #cad5eb; background-color: #fff; -webkit-transition: all .35s; transition: all .35s; }
+.zxx_body {position:absolute; _width: 100%; top: 43px; bottom: 65px; left: 0; right: 0; border: 1px solid; border-color: #fff #f0f3f9 #cad5eb; background-color: #fff; -webkit-transition: all .35s; transition: all .35s; overflow: auto; }
 
 .zxx_side {	width: 300px; height: 100%; border-right: 4px solid #a0b3d6; overflow: auto; position: absolute; }
 .zxx_slide_ol { padding: 0; margin: 0; list-style-type: none; }
