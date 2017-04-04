@@ -110,6 +110,15 @@ change to
 LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread   -liconv
 ```
 
+## #10014   “configure: error: Cannot find libsphinxclient headers”
+
+```
+solution:
+cd  sphinx/api/libsphinxclient/
+./configure 
+make && make install
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
