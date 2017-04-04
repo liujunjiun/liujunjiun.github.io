@@ -92,6 +92,24 @@ switch user
 ```
 chmod -R 775 config
 ```
+
+## #10011   /root/sphinx-2.1.9-release/src/sphinx.cpp:26852: undefined reference to `libiconv_open'
+## #10012   /root/sphinx-2.1.9-release/src/sphinx.cpp:26870: undefined reference to `libiconv'
+## #10013   /root/sphinx-2.1.9-release/src/sphinx.cpp:26876: undefined reference to `libiconv_close'( found in 2016)
+
+```
+solution:
+原因是g++没有添加 -libiconv选项
+
+cd sphinx-2.1.9-release
+
+vi src/MakeFile
+
+把LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread
+改成
+LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread   -liconv
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
