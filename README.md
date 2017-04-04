@@ -93,9 +93,9 @@ switch user
 chmod -R 775 config
 ```
 
-## #10011   /root/sphinx-2.1.9-release/src/sphinx.cpp:26852: undefined reference to `libiconv_open'
-## #10012   /root/sphinx-2.1.9-release/src/sphinx.cpp:26870: undefined reference to `libiconv'
-## #10013   /root/sphinx-2.1.9-release/src/sphinx.cpp:26876: undefined reference to `libiconv_close'( found in 2016)
+## #10011   /root/sphinx-2.1.9-release/src/sphinx.cpp:26852: undefined reference to `libiconv_open'   ( found in 2016)
+## #10012   /root/sphinx-2.1.9-release/src/sphinx.cpp:26870: undefined reference to `libiconv'   ( found in 2016)
+## #10013   /root/sphinx-2.1.9-release/src/sphinx.cpp:26876: undefined reference to `libiconv_close'   ( found in 2016)
 
 ```
 solution:
@@ -105,8 +105,8 @@ cd sphinx-2.1.9-release
 
 vi src/MakeFile
 
-把LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread
-改成
+LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread
+change to
 LIBS = -lm -lz -lexpat  -L/usr/local/lib -lrt  -lpthread   -liconv
 ```
 
