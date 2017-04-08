@@ -119,6 +119,13 @@ cd  sphinx/api/libsphinxclient/
 make && make install
 ```
 
+## #10015  Make sure you have Sphinx installed, then set the SPHINXBUILD environment variable to point to the full path of the 'sphinx-build' executable. Alternatively you can add the directory with the executable to your PATH. If you don't have Sphinx installed, grab it from http://sphinx-doc.org/.  Stop.
+
+
+```
+solution:
+pip install -U Sphinx
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
