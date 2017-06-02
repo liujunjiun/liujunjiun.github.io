@@ -71,7 +71,7 @@ it will  be fine！
 ## #10007  ERROR 1064 (42000): no enabled local indexes to search
 
 ```
-pendding
+(maybe indexer is created in fail)    after a month ,I succeed in creating indexer.
 ```
 
 ## #10008  W: Duplicate sources.list entry when do “sudo apt-get update”
