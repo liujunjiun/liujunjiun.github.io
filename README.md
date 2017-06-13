@@ -126,6 +126,15 @@ make && make install
 solution:
 pip install -U Sphinx
 ```
+
+## #10016  lua.c:82:31: fatal error: readline/readline.h: No such file or directory
+
+```
+solution:
+ yum install readline-devel
+ or
+ apt-get install libreadline-dev
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
