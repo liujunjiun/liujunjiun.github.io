@@ -135,6 +135,12 @@ solution:
  or
  apt-get install libreadline-dev
 ```
+
+## #10017  PHP Fatal error:  Maximum recursion depth exceeded in
+
+```
+ pedding
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
