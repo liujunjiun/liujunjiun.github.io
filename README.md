@@ -141,6 +141,12 @@ solution:
 ```
  pedding
 ```
+## #10018  ERROR: The environment variable PTOOLSPATH is outdated! 
+
+```
+ pedding
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
