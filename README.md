@@ -147,6 +147,12 @@ solution:
  pedding
 ```
 
+## #10019 tcpdump: no suitable device found
+
+```
+ maybe it must be root to run.
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
