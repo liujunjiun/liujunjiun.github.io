@@ -159,6 +159,12 @@ solution:
  由于用户目录写权限问题(you need get Permission)
 ```
 
+## #10021  Failed to watch /var/peta; upper limit on inotify watches reached!
+
+```
+ solution:
+ echo 8192000 > /proc/sys/fs/inotify/max_user_watches
+```
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
