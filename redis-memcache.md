@@ -25,10 +25,6 @@ Requests: 125740 susceed, 0 failed.
 ### redis.php
 ```php
 <?php
-echo "Use PHP Redis extension.<br />";
-//连接
-$redis = new Redis();
-$redis->connect("127.0.0.1", 6379) or die ("Could not connect");
 
 //显示版本
 $version = current($redis->info());
@@ -70,10 +66,6 @@ echo "<br />";
 ### memcached.php
 ```php
 <?php
-echo "Use PHP Memcached extension.<br />";
-//连接
-$mem = new Memcached();
-$mem->addServer("127.0.0.1", 11211) or die ("Could not connect");
 
 //显示版本
 $version = current($mem->getVersion());
