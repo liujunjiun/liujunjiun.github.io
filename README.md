@@ -214,6 +214,16 @@ solution:
     well, the variable is not a non well formed numeric value.
     很有可能不是纯数字的字符串,你可以使用intval()函数等将非格式良好的数据转换成良好的数据类型就行了
 ```
+
+## #10026  svn: Can't convert string from 'UTF-8' to native encoding
+     
+```
+solution:
+    export LC_ALL=zh_CN.UTF-8
+    
+    locale
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
