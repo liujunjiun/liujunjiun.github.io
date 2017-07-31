@@ -17,7 +17,7 @@ Requests: 134445 susceed, 0 failed.
 ```
 Webbench - Simple Web Benchmark 1.5
 Copyright (c) Radim Kolar 1997-2004, GPL Open Source Software.
-Benchmarking: GET http://127.0.0.1/redis.php
+Benchmarking: GET http://127.0.0.1/memcached.php
 2000 clients, running 20 sec.
 Speed=377220 pages/min, 1967549 bytes/sec.
 Requests: 125740 susceed, 0 failed. 
