@@ -224,6 +224,17 @@ solution:
     locale
 ```
 
+## #10027  SyntaxError: Non-ASCII character '\xe4' in file tkinter.py on line 2
+     
+```
+solution:
+    
+在文件开头加入
+
+# -*- coding: UTF-8 -*-    或者  #coding=utf-8
+```
+
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
