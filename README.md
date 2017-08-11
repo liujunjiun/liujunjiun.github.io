@@ -234,6 +234,17 @@ solution:
 # -*- coding: UTF-8 -*-    或者  #coding=utf-8
 ```
 
+## #10029  max_execution_time is not work 
+
+```
+solution:
+在 php.ini 中，有一个参数 max_execution_time 可以设置 PHP 脚本的最大执行时间，但是，在 php-cgi(php-fpm) 中，该参数不会起效。
+真正能够控制 PHP 脚本最大执行时：
+<value name="request_terminate_timeout">0s</value>  
+
+如果是使用 mod_php5.so的作为模块的模式运行 max_execution_time 是会生效的，但是如果是php-fpm模式中运行时不生效的。
+```
+
 
 ![雇佣兵日记](images/img201003241707024.jpg)
 
