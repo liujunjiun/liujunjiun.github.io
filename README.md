@@ -245,6 +245,15 @@ solution:
 如果是使用 mod_php5.so的作为模块的模式运行 max_execution_time 是会生效的，但是如果是php-fpm模式中运行时不生效的。
 ```
 
+## #10030 (98)Address already in use: AH00072: make_sock: could not bind to address [::]:80
+## #10031 (98)Address already in use: AH00072: make_sock: could not bind to address 0.0.0.0:80
+## #10032 no listening sockets available, shutting down  AH00015: Unable to open logs
+
+```
+0~1024 port，  must be root to run
+
+```
+
 
 ![雇佣兵日记](images/img201003241707024.jpg)
 
