@@ -254,6 +254,17 @@ solution:
 
 ```
 
+## #10033 fatal: git-write-tree: error building trees
+
+```
+git 在fetch时侯报错：
+fatal: git-write-tree: error building trees
+解决办法：
+Use:
+git reset --mixed
+instead of git reset --hard. You will not lose any changes.
+
+```
 
 ![雇佣兵日记](images/img201003241707024.jpg)
 
