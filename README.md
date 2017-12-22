@@ -266,6 +266,17 @@ instead of git reset --hard. You will not lose any changes.
 
 ```
 
+## #10034  grep 文件报错 “Binary file ... matches”的处理
+
+```
+抱着个错误是因为grep不能处理二进制的文件，
+
+-a, --text Process a binary file as if it were text; this is equivalent to the --binary-files=text option. 
+
+这个时候加上-a参数就解决了 
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
