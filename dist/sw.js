@@ -1,9 +1,10 @@
 console.log('Script loaded!')
-var cacheStorageKey = 'minimal-pwa-9';
+var cacheStorageKey = 'pwa-10';
 
 var cacheList = [
+	'/',
 	'index-sw.html',
-    "img/5605252d45cef4b8c70cb2ec06a.jpg",
+        "img/5605252d45cef4b8c70cb2ec06a.jpg",
 	"img/560502b845ce651258bd538505a.png",
 	"img/560502fc45cef4b8c70ca79f04a.png",
 	"img/5605086045cef4b8c70ca98f06a.png",
