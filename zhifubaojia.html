@@ -6,21 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style lang="">
-        .container{
-            position: relative;
-            top: 100px;
-        }
+        html, body{
+  margin: 0;
+  padding: 0;
+  background: #FF7777;
+  text-align: center;
+  color: #fff
+}
+.container {
+  position: relative;
+  width: 375px;
+  height: 105px;
+  margin: 50px auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 50px 0px #EA4C4C;
+  text-align: center;
+  color: #fff;
+}
 
-        input{
-            position: absolute;
-        }
+input {
+  position: absolute;
+  border: none;
+  outline: none;
+  top: 0%;
+  left: 38%;
+  background: transparent;
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  color: #232855;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+canvas{
+  border-radius: 4px;
+}
     </style>
 </head>
 <body>
-    <div class="container">
-        <input type="number" value="" id="record"/>
-        <canvas id="canvas" style="background: #000" width=375 height=105></canvas>
-    </div>
+    <h2>canvas价格拖动选择</h2>
+<small>-- 鼠标左右滑动选择价格--</small>
+<div class="container">
+  <input type="number" value="" id="record" />
+  <canvas id="canvas" style="background: #F6F6F6" width=375 height=105></canvas>
+</div>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script>
        window.utils = {};
