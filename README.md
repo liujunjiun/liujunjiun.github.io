@@ -277,6 +277,14 @@ instead of git reset --hard. You will not lose any changes.
 
 ```
 
+## #10035  N/A: version "N/A -> N/A" is not yet installed.
+
+```
+cd ~/.nvm/alias
+
+change default content, and it will be fine!!!!
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
