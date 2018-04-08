@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>纯CSS后台框架</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+.main_console {
+    border-top:30px solid #c2e1f8;
+    padding: 40px;
+    background: #c2e1f8;
+    height:500px;
+    border-radius:10px;
+    position:relative;
+}
+.main_client {
+    position:absolute;
+    width:800px;
+    height:500px;
+    top:0;
+    left:150px;
+    z-index:1;
+    border-radius:10px;
+    background:#8ed2f3;
+}
+.column_title {
+    width:150px;
+    height:30px;
+    border-top:1px solid #fff;
+    border-left:1px solid #fff;
+    border-bottom:1px solid #3183a1;
+    line-height:30px;
+    text-align:center;
+    color:#3183a1;
+    font-size:12px;
+}
+.main_column:hover .column_title {
+    background:#8ed2f3;
+    color:#fff;
+}
+/*.main_panel_wraper的作用是用于防止它移到面板上时面板立即消失*/
+.main_panel_wraper {
+    position:absolute;
+    left:148px;/*注意这里，一定要把它与main_column处于交集状态*/
+    top:0;
+    z-index:2;
+    display:none;
+    width:800px;
+    height:500px;
+}
+.main_column:hover .main_panel_wraper {
+    display:block;
+}
+/*真正用于放置内容的地方*/
+.main_panel {
+    width:780px;
+    height:480px;
+    border-radius:10px;
+    margin:10px;
+    background:#dff9fb;
+}
+</style>
+</head>
+<body>
+<div class="main_console">
+  <div class="main_column">
+    <div class="column_title">AAAAA</div>
+    <div class="main_panel_wraper">
+      <div class="main_panel">AAAA的面板</div>
+    </div>
+  </div>
+  <div class="main_column">
+    <div class="column_title">BBBB</div>
+    <div class="main_panel_wraper">
+      <div class="main_panel">BBBB的面板</div>
+    </div>
+  </div>
+  <div class="main_column">
+    <div class="column_title">CCCC</div>
+    <div class="main_panel_wraper">
+      <div class="main_panel">CCCC的面板</div>
+    </div>
+  </div>
+  <div class="main_column">
+    <div class="column_title">DDDD</div>
+    <div class="main_panel_wraper">
+      <div class="main_panel">DDDD的面板</div>
+    </div>
+  </div>
+  <div class="main_client"></div>
+</div>
+</body>
+</html>
