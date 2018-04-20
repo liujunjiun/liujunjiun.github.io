@@ -1,0 +1,544 @@
+<article>
+        <h1 class="csdn_top">pm2常用的命令用法介绍</h1>
+        <div class="article_bar clearfix">
+            <div class="artical_tag">
+                <span class="original">
+                转载                </span>
+                <span class="time">2018年01月26日 14:00:32</span>
+            </div>
+
+            <ul class="article_tags clearfix csdn-tracking-statistics tracking-click" data-mod="popu_377" style="display: none;">
+                <li class="tit">标签：</li>
+
+<!--          [startarticletags]-->
+                <!--          [endarticletags]-->
+            </ul>
+            <ul class="right_bar">
+                <li><button class="btn-noborder"><i class="icon iconfont icon-read"></i><span class="txt">1747</span></button></li>
+                <li class="edit" style="display: none;">
+                    <a class="btn-noborder" href="https://mp.csdn.net/postedit/79171608">
+                        <i class="icon iconfont icon-bianji"></i><span class="txt">编辑</span>
+                    </a>
+                </li>
+                <li class="del" style="display: none;">
+                    <a class="btn-noborder" onclick="javascript:deleteArticle(fileName);return false;">
+                        <i class="icon iconfont icon-shanchu"></i><span class="txt">删除</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="article_content" class="article_content csdn-tracking-statistics tracking-click" data-mod="popu_519" data-dsm="post" style="overflow: hidden;">
+                            <div class="markdown_views">
+                        <h1 id="pm2常用的命令用法介绍">pm2常用的命令用法介绍</h1>
+
+<p>pm2 是一个带有负载均衡功能的Node应用的进程管理器.当你要把你的独立代码利用全部的服务器上的所有CPU,并保证进程永远都活着,0秒的重载, PM2是完美的,下面我们来看pm2常用的命令用法介绍吧。</p>
+
+<p>PM2 （github上的源码）是开源的基于Nodejs的进程管理器，包括守护进程，监控，日志的一整套完整的功能，基本是Nodejs应用程序不二的守护进程选择，事实上它并不仅仅可以启动Nodejs的程序，只要是一般的脚本的程序它同样可以胜任。</p>
+
+<p>以下是pm2常用的命令行</p>
+
+
+
+<pre class="prettyprint"><code class="hljs ruby has-numbering"><span class="hljs-variable">$ </span>pm2 start app.js              <span class="hljs-comment"># 启动app.js应用程序</span>
+
+<span class="hljs-variable">$ </span>pm2 start app.js -i <span class="hljs-number">4</span>         <span class="hljs-comment"># cluster mode 模式启动4个app.js的应用实例     # 4个应用程序会自动进行负载均衡</span>
+
+<span class="hljs-variable">$ </span>pm2 start app.js --name=<span class="hljs-string">"api"</span> <span class="hljs-comment"># 启动应用程序并命名为 "api"</span>
+
+<span class="hljs-variable">$ </span>pm2 start app.js --watch      <span class="hljs-comment"># 当文件变化时自动重启应用</span>
+
+<span class="hljs-variable">$ </span>pm2 start script.sh           <span class="hljs-comment"># 启动 bash 脚本</span>
+
+
+<span class="hljs-variable">$ </span>pm2 list                      <span class="hljs-comment"># 列表 PM2 启动的所有的应用程序</span>
+
+<span class="hljs-variable">$ </span>pm2 monit                     <span class="hljs-comment"># 显示每个应用程序的CPU和内存占用情况</span>
+
+<span class="hljs-variable">$ </span>pm2 show [app-name]           <span class="hljs-comment"># 显示应用程序的所有信息</span>
+
+
+<span class="hljs-variable">$ </span>pm2 logs                      <span class="hljs-comment"># 显示所有应用程序的日志</span>
+
+<span class="hljs-variable">$ </span>pm2 logs [app-name]           <span class="hljs-comment"># 显示指定应用程序的日志</span>
+
+<span class="hljs-variable">$ </span>pm2 flush
+
+
+<span class="hljs-variable">$ </span>pm2 stop all                  <span class="hljs-comment"># 停止所有的应用程序</span>
+
+<span class="hljs-variable">$ </span>pm2 stop <span class="hljs-number">0</span>                    <span class="hljs-comment"># 停止 id为 0的指定应用程序</span>
+
+<span class="hljs-variable">$ </span>pm2 restart all               <span class="hljs-comment"># 重启所有应用</span>
+
+<span class="hljs-variable">$ </span>pm2 reload all                <span class="hljs-comment"># 重启 cluster mode下的所有应用</span>
+
+<span class="hljs-variable">$ </span>pm2 gracefulReload all        <span class="hljs-comment"># Graceful reload all apps in cluster mode</span>
+
+<span class="hljs-variable">$ </span>pm2 delete all                <span class="hljs-comment"># 关闭并删除所有应用</span>
+
+<span class="hljs-variable">$ </span>pm2 delete <span class="hljs-number">0</span>                  <span class="hljs-comment"># 删除指定应用 id 0</span>
+
+<span class="hljs-variable">$ </span>pm2 scale api <span class="hljs-number">10</span>              <span class="hljs-comment"># 把名字叫api的应用扩展到10个实例</span>
+
+<span class="hljs-variable">$ </span>pm2 reset [app-name]          <span class="hljs-comment"># 重置重启数量</span>
+
+
+<span class="hljs-variable">$ </span>pm2 startup                   <span class="hljs-comment"># 创建开机自启动命令</span>
+
+<span class="hljs-variable">$ </span>pm2 save                      <span class="hljs-comment"># 保存当前应用列表</span>
+
+<span class="hljs-variable">$ </span>pm2 resurrect                 <span class="hljs-comment"># 重新加载保存的应用列表</span>
+
+<span class="hljs-variable">$ </span>pm2 update                    <span class="hljs-comment"># Save processes, kill PM2 and restore processes</span>
+
+<span class="hljs-variable">$ </span>pm2 generate                  <span class="hljs-comment"># Generate a sample json configuration file</span>
+
+
+<span class="hljs-variable">$ </span>pm2 deploy app.json prod setup    <span class="hljs-comment"># Setup "prod" remote server</span>
+
+<span class="hljs-variable">$ </span>pm2 deploy app.json prod          <span class="hljs-comment"># Update "prod" remote server</span>
+
+<span class="hljs-variable">$ </span>pm2 deploy app.json prod revert <span class="hljs-number">2</span> <span class="hljs-comment"># Revert "prod" remote server by 2</span>
+
+
+<span class="hljs-variable">$ </span>pm2 <span class="hljs-class"><span class="hljs-keyword">module</span>:<span class="hljs-title">generate</span> [<span class="hljs-title">name</span>]    <span class="hljs-comment"># Generate sample module with name [name]</span></span>
+
+<span class="hljs-variable">$ </span>pm2 install pm2-logrotate     <span class="hljs-comment"># Install module (here a log rotation system)</span>
+
+<span class="hljs-variable">$ </span>pm2 uninstall pm2-logrotate   <span class="hljs-comment"># Uninstall module</span>
+
+<span class="hljs-variable">$ </span>pm2 publish                   <span class="hljs-comment"># Increment version, git push and npm publish</span></code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li><li style="color: rgb(153, 153, 153);">49</li><li style="color: rgb(153, 153, 153);">50</li><li style="color: rgb(153, 153, 153);">51</li><li style="color: rgb(153, 153, 153);">52</li><li style="color: rgb(153, 153, 153);">53</li><li style="color: rgb(153, 153, 153);">54</li><li style="color: rgb(153, 153, 153);">55</li><li style="color: rgb(153, 153, 153);">56</li><li style="color: rgb(153, 153, 153);">57</li><li style="color: rgb(153, 153, 153);">58</li><li style="color: rgb(153, 153, 153);">59</li><li style="color: rgb(153, 153, 153);">60</li><li style="color: rgb(153, 153, 153);">61</li><li style="color: rgb(153, 153, 153);">62</li><li style="color: rgb(153, 153, 153);">63</li><li style="color: rgb(153, 153, 153);">64</li><li style="color: rgb(153, 153, 153);">65</li><li style="color: rgb(153, 153, 153);">66</li><li style="color: rgb(153, 153, 153);">67</li><li style="color: rgb(153, 153, 153);">68</li><li style="color: rgb(153, 153, 153);">69</li></ul></pre>
+
+<p>简介</p>
+
+<p>PM2是node进程管理工具，可以利用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。</p>
+
+<p>下面就对PM2进行入门性的介绍，基本涵盖了PM2的常用的功能和配置。 <br>
+安装</p>
+
+<p>全局安装，简直不能更简单。 <br>
+&#8203;npm <br>
+ install -g pm2 <br>
+目录介绍</p>
+
+<p>pm2安装好后，会自动创建下面目录。看文件名基本就知道干嘛的了，就不翻译了。</p>
+
+
+
+<pre class="prettyprint"><code class="hljs avrasm has-numbering">    $HOME/<span class="hljs-preprocessor">.pm</span>2 will contain all PM2 related files
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/logs will contain all applications logs
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/pids will contain all applications pids
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/pm2<span class="hljs-preprocessor">.log</span> PM2 logs
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/pm2<span class="hljs-preprocessor">.pid</span> PM2 pid
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/rpc<span class="hljs-preprocessor">.sock</span> Socket file for remote commands
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/pub<span class="hljs-preprocessor">.sock</span> Socket file for publishable events
+    $HOME/<span class="hljs-preprocessor">.pm</span>2/conf<span class="hljs-preprocessor">.js</span> PM2 Configuration</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li></ul></pre>
+
+<p>入门教程</p>
+
+<p>挑我们最爱的express应用来举例。一般我们都是通过npm start启动应用，其实就是调用node ./bin/www。那么，换成pm2就是</p>
+
+<p>注意，这里用了–watch参数，意味着当你的express应用代码发生变化时，pm2会帮你重启服务，多贴心。</p>
+
+<p>pm2 start ./bin/www –watch</p>
+
+<p>入门太简单了，没什么好讲的。直接上官方文档：<a href="http://pm2.keymetrics.io/docs/usage/quick-start" target="_blank">http://pm2.keymetrics.io/docs/usage/quick-start</a> <br>
+常用命令 <br>
+启动</p>
+
+<p>参数说明：</p>
+
+<pre class="prettyprint"><code class="has-numbering">--watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不见听的目录，最好通过配置文件。
+-i --instances：启用多少个实例，可用于负载均衡。如果-i 0或者-i max，则根据当前机器核数确定实例数目。
+--ignore-watch：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如--ignore-watch="test node_modules "some scripts""
+-n --name：应用的名称。查看应用信息的时候可以用到。
+-o --output &lt;path&gt;：标准输出日志文件的路径。
+-e --error &lt;path&gt;：错误输出日志文件的路径。
+--interpreter &lt;interpreter&gt;：the interpreter pm2 should use for executing app (bash, python...)。比如你用的coffee script来编写应用。
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li></ul></pre>
+
+<p>完整命令行参数列表：地址</p>
+
+<p>pm2 start app.js –watch -i 2</p>
+
+<p>重启</p>
+
+<p>pm2 restart app.js</p>
+
+<p>停止</p>
+
+<p>停止特定的应用。可以先通过pm2 list获取应用的名字（–name指定的）或者进程id。</p>
+
+<p>pm2 stop app_name|app_id</p>
+
+<p>如果要停止所有应用，可以</p>
+
+<p>pm2 stop all</p>
+
+<p>删除</p>
+
+<p>类似pm2 stop，如下</p>
+
+<p>pm2 stop app_name|app_id pm2 stop all</p>
+
+<p>查看进程状态</p>
+
+<p>pm2 list</p>
+
+<p>查看某个进程的信息</p>
+
+<p>[root@iZ94wb7tioqZ pids]# pm2 describe 0 Describing process with id 0 - name oc-server <br>
+┌───────────────────┬──────────────────────────────────────────────────────────────┐ <br>
+│ status            │ online                                                       │ <br>
+│ name              │ oc-server                                                    │ <br>
+│ id                │ 0 │ <br>
+│ path              │ /data/file/qiquan/over_the_counter/server/bin/www            │ <br>
+│ args              │                                                              │ <br>
+│ exec cwd          │ /data/file/qiquan/over_the_counter/server                    │ <br>
+│ error log path    │ /data/file/qiquan/over_the_counter/server/logs/app-err-0.log │ <br>
+│ out log path      │ /data/file/qiquan/over_the_counter/server/logs/app-out-0.log │ <br>
+│ pid path          │ /root/.pm2/pids/oc-server-0.pid                              │ <br>
+│ mode              │ fork_mode                                                    │ <br>
+│ node v8 arguments │                                                              │ <br>
+│ watch &amp; reload    │                                                             │ <br>
+│ interpreter       │ node                                                         │ <br>
+│ restarts          │ 293 │ <br>
+│ unstable restarts │ 0 │ <br>
+│ uptime            │ 87m │ <br>
+│ created at        │ 2016-08-26T08:13:43.705Z                                     │ <br>
+└───────────────────┴──────────────────────────────────────────────────────────────┘</p>
+
+<p>配置文件 <br>
+简单说明</p>
+
+<pre class="prettyprint"><code class="has-numbering">配置文件里的设置项，跟命令行参数基本是一一对应的。
+可以选择yaml或者json文件，就看个人洗好了。
+json格式的配置文件，pm2当作普通的js文件来处理，所以可以在里面添加注释或者编写代码，这对于动态调整配置很有好处。
+如果启动的时候指定了配置文件，那么命令行参数会被忽略。（个别参数除外，比如--env）
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li></ul></pre>
+
+<p>例子</p>
+
+<p>举个简单例子，完整配置说明请参考官方文档。</p>
+
+<p>{ “name” : “fis-receiver”, // 应用名称 “script” : “./bin/www”, // 实际启动脚本 “cwd” : “./”, // 当前工作路径 “watch”: [ // 监控变化的目录，一旦变化，自动重启 “bin”, “routers” ], “ignore_watch” : [ // 从监控目录中排除 “node_modules”, “logs”, “public” ], “watch_options”: { “followSymlinks”: false }, “error_file” : “./logs/app-err.log”, // 错误日志路径 “out_file” : “./logs/app-out.log”, // 普通日志路径 “env”: { “NODE_ENV”: “production” // 环境参数，当前指定为生产环境 } }</p>
+
+<p>自动重启</p>
+
+<p>前面已经提到了，这里贴命令行，更多点击这里。</p>
+
+<p>pm2 start app.js –watch</p>
+
+<p>这里是监控整个项目的文件，如果只想监听指定文件和目录，建议通过配置文件的watch、ignore_watch字段来设置。 <br>
+环境切换</p>
+
+<p>在实际项目开发中，我们的应用经常需要在多个环境下部署，比如开发环境、测试环境、生产环境等。在不同环境下，有时候配置项会有差异，比如链接的数据库地址不同等。</p>
+
+<p>对于这种场景，pm2也是可以很好支持的。首先通过在配置文件中通过env_xx来声明不同环境的配置，然后在启动应用时，通过–env参数指定运行的环境。 <br>
+环境配置声明</p>
+
+<p>首先，在配置文件中，通过env选项声明多个环境配置。简单说明下：</p>
+
+<pre class="prettyprint"><code class="has-numbering">env为默认的环境配置（生产环境），env_dev、env_test则分别是开发、测试环境。可以看到，不同环境下的NODE_ENV、REMOTE_ADDR字段的值是不同的。
+在应用中，可以通过process.env.REMOTE_ADDR等来读取配置中生命的变量。
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li></ul></pre>
+
+<p>“env”: { “NODE_ENV”: “production”, “REMOTE_ADDR”: “<a href="http://www.example.com/" target="_blank">http://www.example.com/</a>” },  <br>
+&#8203;”env_dev”: { “NODE_ENV”: “development”, “REMOTE_ADDR”: “<a href="http://wdev.example.com/" target="_blank">http://wdev.example.com/</a>” },  <br>
+&#8203;”env_test”: { “NODE_ENV”: “test”, “REMOTE_ADDR”: “<a href="http://wtest.example.com/" target="_blank">http://wtest.example.com/</a>” }</p>
+
+<p>启动指明环境</p>
+
+<p>假设通过下面启动脚本（开发环境），那么，此时process.env.REMOTE_ADDR的值就是相应的 <a href="http://wdev.example.com/" target="_blank">http://wdev.example.com/</a> ，可以自己试验下。</p>
+
+<p>pm2 start app.js –env dev</p>
+
+<p>负载均衡</p>
+
+<p>命令如下，表示开启三个进程。如果-i 0，则会根据机器当前核数自动开启尽可能多的进程。</p>
+
+<p>pm2 start app.js -i 3 # 开启三个进程  <br>
+&#8203; <br>
+&#8203;pm2 start app.js -i max # 根据机器CPU核数，开启对应数目的进程 </p>
+
+<p>参考文档：点击查看 <br>
+日志查看</p>
+
+<p>除了可以打开日志文件查看日志外，还可以通过pm2 logs来查看实时日志。这点对于线上问题排查非常重要。</p>
+
+<p>比如某个node服务突然异常重启了，那么可以通过pm2提供的日志工具来查看实时日志，看是不是脚本出错之类导致的异常重启。</p>
+
+<p>pm2 logs</p>
+
+<p>指令tab补全</p>
+
+<p>运行pm2 –help，可以看到pm2支持的子命令还是蛮多的，这个时候，自动完成的功能就很重要了。</p>
+
+<p>运行如下命令。恭喜，已经能够通过tab自动补全了。细节可参考这里。</p>
+
+<p>pm2 completion install source ~/.bash_profile</p>
+
+<p>Alt text <br>
+开机自动启动</p>
+
+<p>可以通过pm2 startup来实现开机自启动。细节可参考。大致流程如下</p>
+
+<pre class="prettyprint"><code class="has-numbering">通过pm2 save保存当前进程状态。
+通过pm2 startup [platform]生成开机自启动的命令。（记得查看控制台输出）
+将步骤2生成的命令，粘贴到控制台进行，搞定。
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li></ul></pre>
+
+<p>传入node args</p>
+
+<p>直接上例子，分别是通过命令行和配置文件。</p>
+
+<p>命令行：</p>
+
+<p>pm2 start app.js –node-args=”–harmony”</p>
+
+<p>配置文件：</p>
+
+<p>{ “name” : “oc-server”, “script” : “app.js”, “node_args” : “–harmony” }</p>
+
+<p>实例说明</p>
+
+<p>假设是在centos下，那么运行如下命令，搞定。强烈建议运行完成之后，重启机器，看是否设置成功。</p>
+
+<p>[root@iZ94wb7tioqZ option_analysis]# pm2 save  <br>
+&#8203;[root@iZ94wb7tioqZ option_analysis]# pm2 startup centos  <br>
+&#8203;[PM2] Generating system init script in /etc/init.d/pm2-init.sh <br>
+[PM2] Making script booting at startup… <br>
+[PM2] /var/lock/subsys/pm2-init.sh lockfile has been added <br>
+[PM2] -centos- Using the command: <br>
+      su -c “chmod +x /etc/init.d/pm2-init.sh; chkconfig –add pm2-init.sh”  <br>
+&#8203;[PM2] Done. <br>
+[root@iZ94wb7tioqZ option_analysis]# pm2 save  <br>
+&#8203;[PM2] Dumping processes</p>
+
+<p>远程部署</p>
+
+<p>可参考官方文档，配置也不复杂，用到的时候再来填写这里的坑。TODO</p>
+
+<p>官方文档：<a href="http://pm2.keymetrics.io/docs/usage/deployment/#getting-started" target="_blank">http://pm2.keymetrics.io/docs/usage/deployment/#getting-started</a> <br>
+监控(monitor)</p>
+
+<p>运行如下命令，查看当前通过pm2运行的进程的状态。</p>
+
+<p>pm2 monit</p>
+
+<p>看到类似输出</p>
+
+<p>[root@oneday-dev0 server]# pm2 monit ⌬ <br>
+&#8203; PM2 monitoring (To go further check out <a href="https://app.keymetrics.io" target="_blank">https://app.keymetrics.io</a>)  [                              ] 0 % ⌬  <br>
+&#8203;PM2 monitoring (To go further check o[|||||||||||||||               ] 196.285 MB  <br>
+&#8203;● fis-receiver                        [                              ] 0 % [1] [fork_mode]                        [|||||                         ] 65.773 MB  <br>
+&#8203;● www                                 [                              ] 0 % [2] [fork_mode]                        [|||||                         ] 74.426 MB  <br>
+&#8203;● oc-server                           [                              ] 0 % [3] [fork_mode]                        [||||                          ] 57.801 MB  <br>
+&#8203;● pm2-http-interface [                              ] stopped <br>
+[4] [fork_mode]                        [                              ] 0 B  <br>
+&#8203;● start-production <br>
+[5] [fork_mode]</p>
+
+<p>内存使用超过上限自动重启</p>
+
+<p>如果想要你的应用，在超过使用内存上限后自动重启，那么可以加上–max-memory-restart参数。（有对应的配置项）</p>
+
+<p>pm2 start big-array.js –max-memory-restart 20M</p>
+
+<p>更新pm2</p>
+
+<p>官方文档：<a href="http://pm2.keymetrics.io/docs/usage/update-pm2/#updating-pm2" target="_blank">http://pm2.keymetrics.io/docs/usage/update-pm2/#updating-pm2</a></p>
+
+<p><span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-13-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><merror><mtext>pm2&amp;#xA0;save&amp;#xA0;#&amp;#xA0;&amp;#x8BB0;&amp;#x5F97;&amp;#x4FDD;&amp;#x5B58;&amp;#x8FDB;&amp;#x7A0B;&amp;#x72B6;&amp;#x6001;&amp;#xA0;&amp;#xA0;&amp;#xA0;&amp;#x200B;&amp;#xA0;&amp;#xA0;&amp;#x200B;</mtext></merror></math>" role="presentation"><span class="math" id="MathJax-Span-1" style="vertical-align: 0.211em;" aria-hidden="true"><span class="noError" id="MathJax-Span-2" style="display: inline-block;">pm2&nbsp;save&nbsp;#&nbsp;记得保存进程状态&nbsp;&nbsp;&nbsp;<br>&#8203;&nbsp;&nbsp;<br>&#8203;</span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><merror><mtext>pm2&nbsp;save&nbsp;#&nbsp;记得保存进程状态&nbsp;&nbsp;&nbsp;&#8203;&nbsp;&nbsp;&#8203;</mtext></merror></math></span></span><script type="math/tex" id="MathJax-Element-13"> pm2 save # 记得保存进程状态   
+&#8203;  
+&#8203;</script> npm install pm2 -g  <br>
+&#8203; <br>
+&#8203;$ pm2 update <br>
+&#8203;</p>
+
+<p>pm2 + nginx</p>
+
+<p>无非就是在nginx上做个反向代理配置，直接贴配置。</p>
+
+<p>upstream my_nodejs_upstream { server 127.0.0.1:3001; <br>
+} server { listen 80; server_name my_nodejs_server; root /home/www/project_root; location / { proxy_set_header X-Forwarded-For <span class="MathJax_Preview" style="color: inherit; display: none;"></span><span class="MathJax" id="MathJax-Element-14-Frame" tabindex="0" style="position: relative;" data-mathml="<math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;><merror><mtext>proxy_add_x_forwarded_for;&amp;#xA0;proxy_set_header&amp;#xA0;Host</mtext></merror></math>" role="presentation"><span class="math" id="MathJax-Span-3" style="" aria-hidden="true"><span class="noError" id="MathJax-Span-4" style="display: inline-block;">proxy_add_x_forwarded_for;&nbsp;proxy_set_header&nbsp;Host</span></span><span class="MJX_Assistive_MathML" role="presentation"><math xmlns="http://www.w3.org/1998/Math/MathML"><merror><mtext>proxy_add_x_forwarded_for;&nbsp;proxy_set_header&nbsp;Host</mtext></merror></math></span></span><script type="math/tex" id="MathJax-Element-14">proxy_add_x_forwarded_for; proxy_set_header Host </script>http_host; proxy_set_header X-NginX-Proxy true; proxy_http_version 1.1; proxy_set_header Upgrade $http_upgrade; proxy_set_header Connection “upgrade”; proxy_max_temp_file_size 0; proxy_pass <a href="http://my_nodejs_upstream/" target="_blank">http://my_nodejs_upstream/</a>; proxy_redirect off; proxy_read_timeout 240s; <br>
+    } <br>
+}</p>
+
+<p>官方文档：<a href="http://pm2.keymetrics.io/docs/tutorials/pm2-nginx-production-setup" target="_blank">http://pm2.keymetrics.io/docs/tutorials/pm2-nginx-production-setup</a> <br>
+&#8203; <br>
+pm2编程接口</p>
+
+<p>如果想把pm2的进程监控，跟其他自动化流程整合起来，pm2的编程接口就很有用了。细节可参考官方文档： <br>
+<a href="http://pm2.keymetrics.io/docs/usage/pm2-api/" target="_blank">http://pm2.keymetrics.io/docs/usage/pm2-api/</a> <br>
+模块扩展系统</p>
+
+<p>pm2支持第三方扩展，比如常用的log rotate等。可参考官方文档。 <br>
+&#8203; <br>
+&#8203; <br>
+&#8203; <br>
+&#8203; <br>
+二、安装</p>
+
+<p>Linux Binaries下载地址：<a href="https://nodejs.org/dist" target="_blank">https://nodejs.org/dist</a></p>
+
+<pre class="prettyprint"><code class="has-numbering">cd oneinstack/src
+wget https://nodejs.org/dist/v4.2.4/node-v4.2.4-linux-x64.tar.gz
+tar xzf node-v4.2.4-linux-x64.tar.gz
+cp node-v4.2.4-linux-x64/bin/node /usr/local/bin/
+cp -R node-v4.2.4-linux-x64/lib/node_modules /usr/local/lib/
+ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+npm install pm2@latest -g #安装最新版本pm2模块
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li></ul></pre>
+
+<p>PS: 如果你的主机无法连接公网，先找到能连公网的主机安装上面的方法安装pm2，然后拷贝到你要安装的主机。拷贝如下目录：</p>
+
+<pre class="prettyprint"><code class="has-numbering">/usr/local/bin/node
+/usr/local/lib/node_modules
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li></ul></pre>
+
+<p>再创建相关软连接 <br>
+三、PM2常用命令</p>
+
+<p>假设你现在已经写好了一个app.js的文件，需要启动，你可以使用pm2进行管理</p>
+
+
+
+<pre class="prettyprint"><code class="hljs ruleslanguage has-numbering"><span class="hljs-number">1.</span> 启动
+
+    <span class="hljs-array"># pm</span>2 start app.js
+    <span class="hljs-array"># pm</span>2 start app.js --name my-api   <span class="hljs-array">#my</span>-api为PM2进程名称
+    <span class="hljs-array"># pm</span>2 start app.js -i <span class="hljs-number">0</span>           #根据CPU核数启动进程个数
+    <span class="hljs-array"># pm</span>2 start app.js --watch   #实时监控app.js的方式启动，当app.js文件有变动时，pm2会自动reload
+
+<span class="hljs-number">2.</span> 查看进程
+
+    <span class="hljs-array"># pm</span>2 list
+    <span class="hljs-array"># pm</span>2 show <span class="hljs-number">0</span> 或者 <span class="hljs-array"># pm</span>2 info <span class="hljs-number">0</span>  #查看进程详细信息，<span class="hljs-number">0</span>为PM2进程id
+
+<span class="hljs-number">3.</span> 监控
+
+    <span class="hljs-array"># pm</span>2 monit
+
+<span class="hljs-number">4.</span> 停止
+
+    <span class="hljs-array"># pm</span>2 stop all  #停止PM2列表中所有的进程
+    <span class="hljs-array"># pm</span>2 stop <span class="hljs-number">0</span>    #停止PM2列表中进程为<span class="hljs-number">0</span>的进程
+
+<span class="hljs-number">5.</span> 重载
+
+    <span class="hljs-array"># pm</span>2 reload all    #重载PM2列表中所有的进程
+    <span class="hljs-array"># pm</span>2 reload <span class="hljs-number">0</span>     #重载PM2列表中进程为<span class="hljs-number">0</span>的进程
+
+<span class="hljs-number">6.</span> 重启
+
+    <span class="hljs-array"># pm</span>2 restart all     #重启PM2列表中所有的进程
+    <span class="hljs-array"># pm</span>2 restart <span class="hljs-number">0</span>      #重启PM2列表中进程为<span class="hljs-number">0</span>的进程
+
+<span class="hljs-number">7.</span> 删除PM2进程
+
+    <span class="hljs-array"># pm</span>2 delete <span class="hljs-number">0</span>     #删除PM2列表中进程为<span class="hljs-number">0</span>的进程
+    <span class="hljs-array"># pm</span>2 delete all   #删除PM2列表中所有的进程
+
+<span class="hljs-number">8.</span> 日志操作
+
+    <span class="hljs-array"># pm</span>2 logs [--raw]   <span class="hljs-array">#Display all processes logs in streaming</span>
+    <span class="hljs-array"># pm</span>2 flush              <span class="hljs-array">#Empty all log file</span>
+    <span class="hljs-array"># pm</span>2 reloadLogs    <span class="hljs-array">#Reload all logs</span>
+
+<span class="hljs-number">9.</span> 升级PM2
+
+    <span class="hljs-array"># npm install pm</span>2@lastest -g   #安装最新的PM2版本
+    <span class="hljs-array"># pm</span>2 updatePM2                    #升级pm2
+
+<span class="hljs-number">10.</span> 更多命令参数请查看帮助
+
+    <span class="hljs-array"># pm</span>2 --help</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li><li style="color: rgb(153, 153, 153);">18</li><li style="color: rgb(153, 153, 153);">19</li><li style="color: rgb(153, 153, 153);">20</li><li style="color: rgb(153, 153, 153);">21</li><li style="color: rgb(153, 153, 153);">22</li><li style="color: rgb(153, 153, 153);">23</li><li style="color: rgb(153, 153, 153);">24</li><li style="color: rgb(153, 153, 153);">25</li><li style="color: rgb(153, 153, 153);">26</li><li style="color: rgb(153, 153, 153);">27</li><li style="color: rgb(153, 153, 153);">28</li><li style="color: rgb(153, 153, 153);">29</li><li style="color: rgb(153, 153, 153);">30</li><li style="color: rgb(153, 153, 153);">31</li><li style="color: rgb(153, 153, 153);">32</li><li style="color: rgb(153, 153, 153);">33</li><li style="color: rgb(153, 153, 153);">34</li><li style="color: rgb(153, 153, 153);">35</li><li style="color: rgb(153, 153, 153);">36</li><li style="color: rgb(153, 153, 153);">37</li><li style="color: rgb(153, 153, 153);">38</li><li style="color: rgb(153, 153, 153);">39</li><li style="color: rgb(153, 153, 153);">40</li><li style="color: rgb(153, 153, 153);">41</li><li style="color: rgb(153, 153, 153);">42</li><li style="color: rgb(153, 153, 153);">43</li><li style="color: rgb(153, 153, 153);">44</li><li style="color: rgb(153, 153, 153);">45</li><li style="color: rgb(153, 153, 153);">46</li><li style="color: rgb(153, 153, 153);">47</li><li style="color: rgb(153, 153, 153);">48</li><li style="color: rgb(153, 153, 153);">49</li><li style="color: rgb(153, 153, 153);">50</li></ul></pre>
+
+<p>四、PM2目录结构</p>
+
+<p>默认的目录是：当前用于的家目录下的.pm2目录（此目录可以自定义，请参考：五、自定义启动文件），详细信息如下：</p>
+
+<pre class="prettyprint"><code class="has-numbering">$HOME/.pm2                   #will contain all PM2 related files
+$HOME/.pm2/logs           #will contain all applications logs
+$HOME/.pm2/pids           #will contain all applications pids
+$HOME/.pm2/pm2.log    #PM2 logs
+$HOME/.pm2/pm2.pid    #PM2 pid
+$HOME/.pm2/rpc.sock    #Socket file for remote commands
+$HOME/.pm2/pub.sock   #Socket file for publishable events
+$HOME/.pm2/conf.js       #PM2 Configuration
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li></ul></pre>
+
+<p>五、自定义启动文件</p>
+
+<p>创建一个test.json的示例文件，格式如下：</p>
+
+<pre class="prettyprint"><code class="has-numbering">{
+  "apps":
+    {
+      "name": "test",
+      "cwd": "/data/wwwroot/nodejs",
+      "script": "./test.sh",
+      "exec_interpreter": "bash",
+      "min_uptime": "60s",
+      "max_restarts": 30,
+      "exec_mode" : "cluster_mode",
+      "error_file" : "./test-err.log",
+      "out_file": "./test-out.log",
+      "pid_file": "./test.pid"
+      "watch": false
+    }
+}
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li><li style="color: rgb(153, 153, 153);">15</li><li style="color: rgb(153, 153, 153);">16</li><li style="color: rgb(153, 153, 153);">17</li></ul></pre>
+
+<p>说明：</p>
+
+<p>apps：json结构，apps是一个数组，每一个数组成员就是对应一个pm2中运行的应用</p>
+
+<p>name：应用程序的名称</p>
+
+<p>cwd：应用程序所在的目录</p>
+
+<p>script：应用程序的脚本路径</p>
+
+<p>exec_interpreter：应用程序的脚本类型，这里使用的shell，默认是nodejs</p>
+
+<p>min_uptime：最小运行时间，这里设置的是60s即如果应用程序在60s内退出，pm2会认为程序异常退出，此时触发重启max_restarts设置数量</p>
+
+<p>max_restarts：设置应用程序异常退出重启的次数，默认15次（从0开始计数）</p>
+
+<p>exec_mode：应用程序启动模式，这里设置的是cluster_mode（集群），默认是fork</p>
+
+<p>error_file：自定义应用程序的错误日志文件</p>
+
+<p>out_file：自定义应用程序日志文件</p>
+
+<p>pid_file：自定义应用程序的pid文件</p>
+
+<p>watch：是否启用监控模式，默认是false。如果设置成true，当应用程序变动时，pm2会自动重载。这里也可以设置你要监控的文件。</p>
+
+<p>详细参数列表：见附件八 <br>
+六、实例</p>
+
+<p>已上面的test.json为例</p>
+
+<pre class="prettyprint"><code class="has-numbering"># cat &gt; /data/wwwroot/nodejs/test.sh &lt;&lt; EOF
+#!/bin/bash
+while :
+do
+    echo "Test" &gt;&gt; 1.log
+    sleep 5
+done
+EOF
+
+# chmod +x test.sh      #添加执行权限
+# pm2 start test.json    #启动，如下图：
+
+# pm2 list    #查看pm2进程，如下图：
+</code><ul class="pre-numbering" style=""><li style="color: rgb(153, 153, 153);">1</li><li style="color: rgb(153, 153, 153);">2</li><li style="color: rgb(153, 153, 153);">3</li><li style="color: rgb(153, 153, 153);">4</li><li style="color: rgb(153, 153, 153);">5</li><li style="color: rgb(153, 153, 153);">6</li><li style="color: rgb(153, 153, 153);">7</li><li style="color: rgb(153, 153, 153);">8</li><li style="color: rgb(153, 153, 153);">9</li><li style="color: rgb(153, 153, 153);">10</li><li style="color: rgb(153, 153, 153);">11</li><li style="color: rgb(153, 153, 153);">12</li><li style="color: rgb(153, 153, 153);">13</li><li style="color: rgb(153, 153, 153);">14</li></ul></pre>                </div>
+                                                <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/production/markdown_views-ea0013b516.css">
+                                    </div>
+        <script>
+        $(".MathJax").remove();
+        </script>
+    </article>
