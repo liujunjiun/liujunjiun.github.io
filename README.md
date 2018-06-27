@@ -285,6 +285,38 @@ cd ~/.nvm/alias
 change default content, and it will be fine!!!!
 ```
 
+## #10036  Iphone Safari中使用sort的排序函数失败.
+
+```
+
+;(function(w){
+    if(/msie|applewebkit.+safari/i.test(w.navigator.userAgent)){
+        var _sort = Array.prototype.sort;
+        Array.prototype.sort = function(fn){
+            if(!!fn && typeof fn === 'function'){
+                if(this.length < 2) return this;
+                var i = 0, j = i + 1, l = this.length, tmp, r = false, t = 0;
+                for(; i < l; i++){
+                    for(j = i + 1; j < l; j++){
+                        t = fn.call(this, this[i], this[j]);
+                        r = (typeof t === 'number' ? t : !!t ? 1 : 0) > 0 ? true : false;
+                        if(r){
+                            tmp = this[i];
+                            this[i] = this[j];
+                            this[j] = tmp;
+                        }
+                    }
+                }
+                return this;
+            } else {
+                return _sort.call(this);
+            }
+        };
+    }
+})(window);
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
