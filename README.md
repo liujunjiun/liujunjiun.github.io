@@ -317,6 +317,13 @@ change default content, and it will be fine!!!!
 
 ```
 
+## #10037  php编译的时候为什么要加上 --disable-fileinfo .
+
+```
+because 1G以下的内存，编译会出现问题，就需要--disable-fileinfo
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
