@@ -324,6 +324,17 @@ because 1G以下的内存，编译会出现问题，就需要--disable-fileinfo
 
 ```
 
+
+## #10037  Warning: require(): open_basedir restriction in effect.
+
+```
+sudo vim /usr/local/nginx/conf/fastcgi.conf
+
+# fastcgi_param PHP_ADMIN_VALUE "open_basedir=$document_root/:$document_root/../:/tmp/:/proc/";
+
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
