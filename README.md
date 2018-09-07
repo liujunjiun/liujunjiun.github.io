@@ -335,6 +335,25 @@ sudo vim /usr/local/nginx/conf/fastcgi.conf
 
 ```
 
+## #10038  Smarty has a deprecated constructor.
+
+```
+
+最近刚把php版本从5.6切换到7.0上，但是再重新打开项目时，报如下错误：
+
+Deprecated: Methods with the same name as their class will not be constructors in a future version of PHP;
+Smarty has a deprecated constructor in /www/platform/library/Platform/View/Smarty/Smarty.class.php
+
+do  like this, it will fine!
+<?php
+        class a{
+                function __construct(){
+                }
+        }
+?>
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
