@@ -354,6 +354,17 @@ do  like this, it will fine!
 
 ```
 
+
+## #10039  Namespace declaration statement has to be the very first statement in the script.
+
+```
+
+在PHP文件中编写有namespace 时候提示此错误，应该将  <?php  开始前面不能有语句，空行也不行。
+
+如果是在含有<html>语言的混合php 文件里面，且文件里面至少有一个<?php   ?>代码段时候，只要用到namespace,该文件的首行必须以<?php开头.
+
+```
+
 ![雇佣兵日记](images/img201003241707024.jpg)
 
 [(liujunjun's blog && 军军的博客)](https://liujunjiun.github.io/)
