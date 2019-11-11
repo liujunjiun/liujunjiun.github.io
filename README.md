@@ -355,7 +355,18 @@ do  like this, it will fine!
 ```
 
 
-## #10039  Namespace declaration statement has to be the very first statement in the script.
+## #10039  gulpInst.start.apply(gulpInst, toRun);
+
+```
+
+gulp 3 变成 gulp 4 时，出现了错误Error:gulpInst.start.apply(gulpInst, toRun) 
+
+解决方案：执行命令，npm i -g gulp-cli
+
+```
+
+
+## #10040  Namespace declaration statement has to be the very first statement in the script.
 
 ```
 
